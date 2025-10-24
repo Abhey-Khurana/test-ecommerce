@@ -1,11 +1,14 @@
 import { createClient } from 'redis';
+import dotenv from "dotenv"
+
+dotenv.config();
 
 const client = createClient({
     username: 'default',
-    password: '2uA7f4MQaNcNtAsBr4EFUOxQffXlNMFR',
+    password: process.env.REDIS_PASSWORD,
     socket: {
-        host: 'redis-14773.c325.us-east-1-4.ec2.redns.redis-cloud.com',
-        port: 14773
+        host: process.env.REDIS_HOST,
+        port: process.env.REDIS_PORT
     }
 });
 
